@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Request Quote - Sandy Peak Woodcraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">SP</div>
+        <div>
+          <h1>Sandy Peak Woodcraft</h1>
+          <span>Custom woodworking</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="store.html">Store</a>
+        <a href="quote.html" class="quote-link active">Request Quote (<span id="quote-count">0</span>)</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container section-header">
+        <p class="eyebrow">Request Quote</p>
+        <h3>Tell us what you want to reserve or build.</h3>
+        <p>Quote requests help us confirm availability, lead time, and delivery options.</p>
+      </div>
+      <div class="container feature-split">
+        <div class="form-card">
+          <h4>Your quote cart</h4>
+          <div id="cart" aria-live="polite"></div>
+          <p class="hint">Need to add items? Visit the <a href="store.html">store</a> or <a href="gallery.html">gallery</a> to explore.</p>
+        </div>
+        <form class="form-card" id="quote-form">
+          <div class="form-grid">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" />
+            </div>
+            <div>
+              <label for="notes">Notes / Measurements</label>
+              <textarea id="notes" name="notes" rows="4"></textarea>
+            </div>
+          </div>
+          <div class="form-footer">
+            <span class="form-status" id="quote-status"></span>
+            <button class="btn primary" type="submit">Send request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Sandy Peak Woodcraft. Built in Utah.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/quote.js" defer></script>
+</body>
+</html>

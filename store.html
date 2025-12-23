@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Store - Sandy Peak Woodcraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">SP</div>
+        <div>
+          <h1>Sandy Peak Woodcraft</h1>
+          <span>Custom woodworking</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="store.html" class="active">Store</a>
+        <a href="quote.html" class="quote-link">Request Quote (<span id="quote-count">0</span>)</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container section-header">
+        <p class="eyebrow">Premade</p>
+        <h3>Premade items available now.</h3>
+        <p>Reserve pieces by adding them to your quote cart. We will confirm shipping and payment.</p>
+      </div>
+      <div class="container store-grid" id="products">
+        <article class="store-card">
+          <img src="assets/images/gallery-nightstand.webp" alt="Juniper nightstand" loading="lazy" />
+          <h4>Juniper Nightstand</h4>
+          <p>Poplar box with live edge trim and adjustable shelf.</p>
+          <p class="price">$425</p>
+          <button class="btn primary add-quote" data-id="nightstand" data-title="Juniper Nightstand" data-price="425">Add to Quote</button>
+        </article>
+        <article class="store-card">
+          <img src="assets/images/gallery-measuring.webp" alt="Maple measuring set" loading="lazy" />
+          <h4>Maple Measuring Set</h4>
+          <p>Stabilized maple handles paired with stainless hardware.</p>
+          <p class="price">$95</p>
+          <button class="btn primary add-quote" data-id="measuring" data-title="Maple Measuring Set" data-price="95">Add to Quote</button>
+        </article>
+        <article class="store-card">
+          <img src="assets/images/gallery-cheese.webp" alt="Burl cheese plane" loading="lazy" />
+          <h4>Burl Cheese Plane</h4>
+          <p>Spalted maple with resin accents and food-safe finish.</p>
+          <p class="price">$68</p>
+          <button class="btn primary add-quote" data-id="cheese" data-title="Burl Cheese Plane" data-price="68">Add to Quote</button>
+        </article>
+        <article class="store-card">
+          <img src="assets/images/gallery-icecream.webp" alt="Padauk ice cream scoop" loading="lazy" />
+          <h4>Padauk Ice Cream Scoop</h4>
+          <p>Ergonomic handle and polished scoop head.</p>
+          <p class="price">$52</p>
+          <button class="btn primary add-quote" data-id="scoop" data-title="Padauk Ice Cream Scoop" data-price="52">Add to Quote</button>
+        </article>
+        <article class="store-card">
+          <img src="assets/images/gallery-bottle.webp" alt="Bottle opener" loading="lazy" />
+          <h4>Walnut Bottle Opener</h4>
+          <p>Compact gift-sized opener with brass accents.</p>
+          <p class="price">$38</p>
+          <button class="btn primary add-quote" data-id="bottle" data-title="Walnut Bottle Opener" data-price="38">Add to Quote</button>
+        </article>
+        <article class="store-card">
+          <img src="assets/images/gallery-pen.webp" alt="Resin pen" loading="lazy" />
+          <h4>Resin Burl Pen</h4>
+          <p>Hand-turned with custom resin blank.</p>
+          <p class="price">$65</p>
+          <button class="btn primary add-quote" data-id="pen" data-title="Resin Burl Pen" data-price="65">Add to Quote</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-split">
+        <div class="quote-panel">
+          <h3>Quote cart</h3>
+          <p>Add items then send a request. We will follow up with payment and shipping options.</p>
+          <a class="btn ghost" href="quote.html">View quote cart</a>
+        </div>
+        <div class="feature-panel">
+          <h3>Prefer custom?</h3>
+          <p>We can match stains, sizes, and hardware to your space. Tell us what you need and we will recommend options.</p>
+          <a class="btn ghost" href="quote.html">Start a custom request</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Sandy Peak Woodcraft. Built in Utah.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/quote.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sandy Peak Woodcraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">SP</div>
+        <div>
+          <h1>Sandy Peak Woodcraft</h1>
+          <span>Custom woodworking</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="store.html">Store</a>
+        <a href="quote.html" class="quote-link">Request Quote (<span id="quote-count">0</span>)</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Wasatch Front - Handmade</p>
+          <h2>Furniture and keepsakes carved with mountain grit.</h2>
+          <p>From resin-inlay pens to heirloom cabinets, we build with locally sourced timber and a relentless attention to detail.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="store.html">Shop premade</a>
+            <a class="btn ghost" href="quote.html">Start a custom build</a>
+          </div>
+          <div class="tag-list">
+            <span class="tag">Live-edge slabs</span>
+            <span class="tag">Resin pours</span>
+            <span class="tag">Precision joinery</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="assets/images/gallery-nightstand.webp" alt="Custom nightstand in progress" loading="lazy" />
+          <p class="card-caption">Signature build - Juniper nightstand with hand-burnished edges</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-header">
+        <p class="eyebrow">Featured</p>
+        <h3>Premade pieces ready to ship.</h3>
+        <p>Small-batch runs released each week. Add items to your quote cart to reserve.</p>
+      </div>
+      <div class="container grid">
+        <article class="card">
+          <img src="assets/images/gallery-nightstand.webp" alt="Juniper nightstand" loading="lazy" />
+          <h4>Juniper Nightstand</h4>
+          <p class="price">$425</p>
+          <button class="btn primary add-quote" data-id="nightstand" data-title="Juniper Nightstand" data-price="425">Add to Quote</button>
+        </article>
+        <article class="card">
+          <img src="assets/images/gallery-measuring.webp" alt="Maple measuring set" loading="lazy" />
+          <h4>Maple Measuring Set</h4>
+          <p class="price">$95</p>
+          <button class="btn primary add-quote" data-id="measuring" data-title="Maple Measuring Set" data-price="95">Add to Quote</button>
+        </article>
+        <article class="card">
+          <img src="assets/images/gallery-cheese.webp" alt="Cheese plane with burl handle" loading="lazy" />
+          <h4>Burl Cheese Plane</h4>
+          <p class="price">$68</p>
+          <button class="btn primary add-quote" data-id="cheese" data-title="Burl Cheese Plane" data-price="68">Add to Quote</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-split">
+        <div class="feature-panel">
+          <h3>Custom builds</h3>
+          <p>Work directly with our shop to dial in dimensions, wood species, and finishes. We create sketches, mock-ups, and supply timelines before the first cut.</p>
+          <a class="btn ghost" href="quote.html">Request a quote</a>
+        </div>
+        <div class="feature-panel">
+          <h3>Studio craft</h3>
+          <p>Every blank is poured, turned, and finished in-house. We combine reclaimed hardwoods with modern resin work for pieces that are both rugged and refined.</p>
+          <a class="btn ghost" href="gallery.html">View the gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-header">
+        <p class="eyebrow">Gallery</p>
+        <h3>Latest projects from the bench.</h3>
+      </div>
+      <div class="container gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/images/gallery-console.webp" alt="Rolling coffee bar console" loading="lazy" />
+          <span>Rolling coffee bar console</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/gallery-pen.webp" alt="Resin pen collection" loading="lazy" />
+          <span>Resin pen collection</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/gallery-icecream.webp" alt="Padauk ice cream scoop" loading="lazy" />
+          <span>Padauk ice cream scoop</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container section-header">
+        <p class="eyebrow">Contact</p>
+        <h3>Tell us about your next piece.</h3>
+        <p>Share your timeline, budget, and inspiration. We typically reply within one business day.</p>
+      </div>
+      <div class="container feature-split">
+        <div class="form-card">
+          <h4>Reach out directly</h4>
+          <p>hello@sandypeakwoodcraft.com</p>
+          <p>(801) 555-0199</p>
+          <p>Sandy, Utah - Serving the Wasatch Front</p>
+        </div>
+        <form class="form-card" id="contact-form" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" required placeholder="Jane Woodworker" />
+            </div>
+            <div>
+              <label for="contact-email">Email</label>
+              <input id="contact-email" type="email" name="email" required placeholder="you@email.com" />
+            </div>
+            <div>
+              <label for="contact-project">Project type</label>
+              <select id="contact-project" name="project" required>
+                <option value="">Select a project</option>
+                <option>Custom furniture</option>
+                <option>Kitchenware</option>
+                <option>Corporate gifts</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="contact-message">Project details</label>
+              <textarea id="contact-message" name="message" rows="4" required placeholder="Dimensions, materials, finishes..."></textarea>
+            </div>
+          </div>
+          <div class="form-footer">
+            <span class="form-status" id="contact-status"></span>
+            <button class="btn primary" type="submit">Send message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Sandy Peak Woodcraft. Built in Utah.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/quote.js" defer></script>
+</body>
+</html>

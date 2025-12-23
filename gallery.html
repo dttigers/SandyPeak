@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery - Sandy Peak Woodcraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">SP</div>
+        <div>
+          <h1>Sandy Peak Woodcraft</h1>
+          <span>Custom woodworking</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="store.html">Store</a>
+        <a href="quote.html" class="quote-link">Request Quote (<span id="quote-count">0</span>)</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container section-header">
+        <p class="eyebrow">Gallery</p>
+        <h3>Workbench highlights, resin pours, and finished builds.</h3>
+        <p>Tap any image to view it full size.</p>
+      </div>
+      <div class="container gallery-grid">
+        <div class="gallery-item" data-caption="Juniper nightstand build">
+          <img src="assets/images/gallery-nightstand.webp" alt="Juniper nightstand" loading="lazy" />
+          <span>Juniper nightstand build</span>
+        </div>
+        <div class="gallery-item" data-caption="Rolling coffee bar console">
+          <img src="assets/images/gallery-console.webp" alt="Rolling coffee bar console" loading="lazy" />
+          <span>Rolling coffee bar console</span>
+        </div>
+        <div class="gallery-item" data-caption="Resin pen collection">
+          <img src="assets/images/gallery-pen.webp" alt="Resin pen collection" loading="lazy" />
+          <span>Resin pen collection</span>
+        </div>
+        <div class="gallery-item" data-caption="Maple measuring set">
+          <img src="assets/images/gallery-measuring.webp" alt="Maple measuring set" loading="lazy" />
+          <span>Maple measuring set</span>
+        </div>
+        <div class="gallery-item" data-caption="Burl cheese plane">
+          <img src="assets/images/gallery-cheese.webp" alt="Burl cheese plane" loading="lazy" />
+          <span>Burl cheese plane</span>
+        </div>
+        <div class="gallery-item" data-caption="Padauk ice cream scoop">
+          <img src="assets/images/gallery-icecream.webp" alt="Padauk ice cream scoop" loading="lazy" />
+          <span>Padauk ice cream scoop</span>
+        </div>
+        <div class="gallery-item" data-caption="Bottle opener detail">
+          <img src="assets/images/gallery-bottle.webp" alt="Bottle opener detail" loading="lazy" />
+          <span>Bottle opener detail</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" hidden>
+      <button id="close-lightbox" class="lightbox-close" aria-label="Close">&times;</button>
+      <figure>
+        <img id="lightbox-img" src="" alt="" />
+        <figcaption id="lightbox-caption" class="card-caption"></figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Sandy Peak Woodcraft. Built in Utah.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
