@@ -52,7 +52,7 @@ async function handleSubmit(event) {
   });
   body += `%0D%0ATotal: $${total.toFixed(2)}%0D%0A%0D%0ANotes:%0D%0A${notes}`;
 
-  const recipient = 'hello@sandypeakwoodcraft.com';
+  const recipient = 'info@sandypeakwoodcraft.com';
   const subject = encodeURIComponent('Quote Request - Sandy Peak Woodcraft');
   window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 }
