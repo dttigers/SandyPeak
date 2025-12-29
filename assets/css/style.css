@@ -438,6 +438,10 @@ label {
   font-weight: 600;
 }
 
+.lightbox[hidden] {
+  display: none;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;

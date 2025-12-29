@@ -5,7 +5,7 @@ Multi-page static website for Sandy Peak Woodcraft with a gallery lightbox, prem
 ## Pages
 - `index.html` - home + contact form
 - `about.html` - studio story and process
-- `gallery.html` - gallery with lightbox
+- `projects.html` - past custom jobs (gallery with lightbox)
 - `store.html` - premade products with quote buttons
 - `quote.html` - quote cart + request form
 
