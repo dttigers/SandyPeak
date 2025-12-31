@@ -47,8 +47,53 @@
           <img src="assets/images/gallery-console.webp" alt="Rolling coffee bar console" loading="lazy" />
           <span>Rolling coffee bar console — custom finish</span>
         </div>
-        <div class="gallery-item" data-caption="Resin pen collection — studio series">
-          <img src="assets/images/gallery-pen.webp" alt="Resin pen collection" loading="lazy" />
+        <div class="gallery-item gallery-slideshow" data-caption="Resin pen collection — studio series">
+          <div class="slideshow-container">
+            <div class="slide" data-slide="1">
+              <img src="assets/images/gallery-pen.webp" alt="Resin pen collection studio series" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="2">
+              <img src="assets/images/penproject-1.webp" alt="Resin pen project 1" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="3">
+              <img src="assets/images/penproject-2.webp" alt="Resin pen project 2" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="4">
+              <img src="assets/images/penproject-3.webp" alt="Resin pen project 3" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="5">
+              <img src="assets/images/penproject-4.webp" alt="Resin pen project 4" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="6">
+              <img src="assets/images/penproject-5.webp" alt="Resin pen project 5" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="7">
+              <img src="assets/images/penproject-6.webp" alt="Resin pen project 6" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="8">
+              <img src="assets/images/penproject-7.webp" alt="Resin pen project 7" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="9">
+              <img src="assets/images/penproject-8.webp" alt="Resin pen project 8" loading="lazy" />
+            </div>
+            <div class="slide" data-slide="10">
+              <img src="assets/images/penproject-9.webp" alt="Resin pen project 9" loading="lazy" />
+            </div>
+            <button class="slide-prev" aria-label="Previous slide">&#10094;</button>
+            <button class="slide-next" aria-label="Next slide">&#10095;</button>
+            <div class="slide-dots">
+              <span class="dot" data-dot="1"></span>
+              <span class="dot" data-dot="2"></span>
+              <span class="dot" data-dot="3"></span>
+              <span class="dot" data-dot="4"></span>
+              <span class="dot" data-dot="5"></span>
+              <span class="dot" data-dot="6"></span>
+              <span class="dot" data-dot="7"></span>
+              <span class="dot" data-dot="8"></span>
+              <span class="dot" data-dot="9"></span>
+              <span class="dot" data-dot="10"></span>
+            </div>
+          </div>
           <span>Resin pen collection — studio series</span>
         </div>
         <div class="gallery-item" data-caption="Maple measuring set — engraved gift set">
@@ -77,6 +122,8 @@
 
     <div id="lightbox" class="lightbox" hidden>
       <button id="close-lightbox" class="lightbox-close" aria-label="Close">&times;</button>
+      <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous">&#10094;</button>
+      <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next">&#10095;</button>
       <figure>
         <img id="lightbox-img" src="" alt="" />
         <figcaption id="lightbox-caption" class="card-caption"></figcaption>

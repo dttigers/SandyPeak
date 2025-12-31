@@ -56,18 +56,76 @@ function wireGalleryLightbox() {
 
   const img = document.getElementById('lightbox-img');
   const caption = document.getElementById('lightbox-caption');
+  let currentSlideshowItem = null;
 
   document.querySelectorAll('.gallery-item').forEach((item) => {
     item.addEventListener('click', () => {
-      const target = item.querySelector('img');
+      let target;
+      let captionText = item.dataset.caption || '';
+      
+      // Handle slideshow items - get the active slide
+      if (item.classList.contains('gallery-slideshow')) {
+        currentSlideshowItem = item;
+        const activeSlide = item.querySelector('.slide.active');
+        target = activeSlide?.querySelector('img');
+      } else {
+        currentSlideshowItem = null;
+        target = item.querySelector('img');
+      }
+      
       if (!target) return;
       img.src = target.src;
       img.alt = target.alt || '';
       if (caption) {
-        caption.textContent = item.dataset.caption || target.alt || '';
+        caption.textContent = captionText;
       }
       lightbox.hidden = false;
     });
+  });
+
+  function navigateSlideshowInLightbox(direction) {
+    if (!currentSlideshowItem) return;
+    
+    const slides = currentSlideshowItem.querySelectorAll('.slide');
+    const dots = currentSlideshowItem.querySelectorAll('.dot');
+    const activeSlide = currentSlideshowItem.querySelector('.slide.active');
+    const currentIndex = Array.from(slides).indexOf(activeSlide);
+    const nextIndex = (currentIndex + direction + slides.length) % slides.length;
+    
+    // Update slideshow
+    slides.forEach((slide) => slide.classList.remove('active'));
+    dots.forEach((dot) => dot.classList.remove('active'));
+    slides[nextIndex].classList.add('active');
+    dots[nextIndex].classList.add('active');
+    
+    // Update lightbox image
+    const newImg = slides[nextIndex].querySelector('img');
+    img.src = newImg.src;
+    img.alt = newImg.alt || '';
+  }
+
+  // Navigation buttons in lightbox
+  document.getElementById('lightbox-prev')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateSlideshowInLightbox(-1);
+  });
+
+  document.getElementById('lightbox-next')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateSlideshowInLightbox(1);
+  });
+
+  // Keyboard navigation in lightbox
+  document.addEventListener('keydown', (event) => {
+    if (lightbox.hidden) return;
+    
+    if (event.key === 'Escape') {
+      lightbox.hidden = true;
+    } else if (event.key === 'ArrowLeft') {
+      navigateSlideshowInLightbox(-1);
+    } else if (event.key === 'ArrowRight') {
+      navigateSlideshowInLightbox(1);
+    }
   });
 
   document.getElementById('close-lightbox')?.addEventListener('click', () => {
@@ -79,13 +137,46 @@ function wireGalleryLightbox() {
       lightbox.hidden = true;
     }
   });
+}
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !lightbox.hidden) {
-      lightbox.hidden = true;
+function wireSlideshows() {
+  document.querySelectorAll('.gallery-slideshow').forEach((item) => {
+    const slides = item.querySelectorAll('.slide');
+    const dots = item.querySelectorAll('.dot');
+    const prevBtn = item.querySelector('.slide-prev');
+    const nextBtn = item.querySelector('.slide-next');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+      currentSlide = (n + slides.length) % slides.length;
+      slides.forEach((slide) => slide.classList.remove('active'));
+      dots.forEach((dot) => dot.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
     }
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentSlide - 1);
+    });
+
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showSlide(currentSlide + 1);
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(Number(dot.dataset.dot) - 1);
+      });
+    });
+
+    // Initialize first slide
+    showSlide(0);
   });
 }
+
 
 function wireContactForm() {
   const form = document.getElementById('contact-form');
@@ -122,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateQuoteCount();
   wireAddToQuote();
   wireGalleryLightbox();
+  wireSlideshows();
   wireContactForm();
   setYear();
 });

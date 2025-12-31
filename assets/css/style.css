@@ -438,6 +438,89 @@ label {
   font-weight: 600;
 }
 
+.gallery-slideshow {
+  grid-column: span 1;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slideshow-container .slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slideshow-container .slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.slideshow-container .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-prev,
+.slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.slide-prev:hover,
+.slide-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.slide-prev {
+  left: 0.5rem;
+}
+
+.slide-next {
+  right: 0.5rem;
+}
+
+.slide-dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .lightbox[hidden] {
   display: none;
 }
@@ -473,6 +556,33 @@ label {
   padding: 0.3rem 0.7rem;
   cursor: pointer;
   font-size: 1.1rem;
+  z-index: 31;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  z-index: 31;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
 }
 
 .footer {
