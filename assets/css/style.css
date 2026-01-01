@@ -440,6 +440,7 @@ label {
 
 .gallery-slideshow {
   grid-column: span 1;
+  position: relative;
 }
 
 .slideshow-container {
@@ -448,31 +449,34 @@ label {
   height: 220px;
   overflow: hidden;
   border-radius: 16px;
-  background: #0000;
+  background: #000;
 }
 
 .slideshow-container .slide {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
 }
 
 .slideshow-container .slide.active {
   display: block;
   opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 
 .slideshow-container .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .slide-prev,
@@ -509,7 +513,7 @@ label {
   bottom: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   gap: 0.5rem;
   z-index: 10;
 }
@@ -518,27 +522,29 @@ label {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  opacity: 0.5;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .dot.active {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.lightbox[hidden] {
-  display: none;
+  background: #ffffff;
+  opacity: 0.9;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
   background: rgba(10, 7, 5, 0.85);
-  display: grid;
+  display: none;
   place-items: center;
   padding: 2rem;
   z-index: 30;
+}
+
+.lightbox:not([hidden]) {
+  display: grid;
 }
 
 .lightbox img {
