@@ -73,6 +73,13 @@ img {
   font-weight: 700;
 }
 
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .brand h1 {
   margin: 0;
   font-size: 1.3rem;
