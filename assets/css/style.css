@@ -135,6 +135,29 @@ img {
   padding: 4.5rem 0 3.5rem;
 }
 
+main {
+  position: relative;
+}
+
+main::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  max-width: 800px;
+  height: 60vw;
+  max-height: 800px;
+  background-image: url('../images/Logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.30;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
