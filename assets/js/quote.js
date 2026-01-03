@@ -2,8 +2,22 @@ function renderCart() {
   const cartEl = document.getElementById('cart');
   if (!cartEl) return;
   const cart = JSON.parse(localStorage.getItem('quoteCart') || '[]');
+  
   if (cart.length === 0) {
-    cartEl.innerHTML = '<p>Your quote is empty. Add items on the <a href="store.html">Store</a> page.</p>';
+    cartEl.innerHTML = `
+      <div style="text-align: center; padding: 1.5rem 0;">
+        <p style="margin-bottom: 1rem; color: var(--muted);">Your quote cart is empty.</p>
+        <p style="margin-bottom: 1rem;">Add items from the store to get started:</p>
+        <div style="display: grid; gap: 0.8rem; margin-top: 1rem;">
+          <a href="store.html" class="btn primary" style="text-decoration: none;">Browse Store Items</a>
+          <p style="font-size: 0.9rem; color: var(--muted);">or</p>
+          <a href="projects.html" class="btn ghost" style="text-decoration: none;">View Custom Projects</a>
+        </div>
+        <div style="margin-top: 1.5rem; padding: 1rem; background: var(--accent-soft); border-radius: 12px;">
+          <p style="font-size: 0.9rem; margin: 0;"><strong>Popular items:</strong> Laser Pointers ($40), Measuring Sets ($100), Cheese Planes ($35)</p>
+        </div>
+      </div>
+    `;
     return;
   }
 
@@ -31,6 +45,7 @@ async function handleSubmit(event) {
   event.preventDefault();
   const cart = JSON.parse(localStorage.getItem('quoteCart') || '[]');
   const status = document.getElementById('quote-status');
+  
   if (cart.length === 0) {
     if (status) {
       status.textContent = 'Please add items to your quote before sending.';
@@ -44,6 +59,15 @@ async function handleSubmit(event) {
   const phone = document.getElementById('phone').value;
   const notes = document.getElementById('notes').value;
 
+  // Check if required fields are filled
+  if (!name || !email) {
+    if (status) {
+      status.textContent = 'Please fill in your name and email.';
+      status.style.color = '#b6452c';
+    }
+    return;
+  }
+
   let body = `Quote request from ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AItems:%0D%0A`;
   let total = 0;
   cart.forEach((item) => {
@@ -54,7 +78,25 @@ async function handleSubmit(event) {
 
   const recipient = 'info@sandypeakwoodcraft.com';
   const subject = encodeURIComponent('Quote Request - Sandy Peak Woodcraft');
-  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+  
+  // Try to open mailto
+  try {
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    
+    // Show success message after a short delay
+    setTimeout(() => {
+      if (status) {
+        status.textContent = 'Email client opened! If nothing happened, please email us directly at info@sandypeakwoodcraft.com';
+        status.style.color = '#2f6b3b';
+      }
+    }, 500);
+  } catch (error) {
+    // Fallback if mailto fails
+    if (status) {
+      status.textContent = 'Please email your quote to info@sandypeakwoodcraft.com';
+      status.style.color = '#b6452c';
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
