@@ -152,7 +152,7 @@ main::before {
   background-image: url('../images/Logo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top center;
   opacity: 0.30;
   z-index: -1;
   pointer-events: none;
