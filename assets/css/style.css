@@ -224,6 +224,7 @@ main::before {
   padding: 1.2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .hero-card img {
@@ -674,5 +675,75 @@ label {
   .form-footer {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+.hero-slideshow .hero-slide-container {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.hero-slide .card-caption {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+  background: var(--accent);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .hero-slide img {
+    height: 240px;
+  }
+
+  .hero-slideshow .hero-slide-container {
+    height: 320px;
   }
 }
