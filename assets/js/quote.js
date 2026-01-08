@@ -46,13 +46,13 @@ async function handleSubmit(event) {
   const cart = JSON.parse(localStorage.getItem('quoteCart') || '[]');
   const status = document.getElementById('quote-status');
   
-  if (cart.length === 0) {
-    if (status) {
-      status.textContent = 'Please add items to your quote before sending.';
-      status.style.color = '#b6452c';
-    }
-    return;
-  }
+ // if (cart.length === 0) {
+ //   if (status) {
+ //     status.textContent = 'Please add items to your quote before sending.';
+ //     status.style.color = '#b6452c';
+ //   }
+ //   return;
+ // }
 
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
