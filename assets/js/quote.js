@@ -46,14 +46,6 @@ async function handleSubmit(event) {
   const cart = JSON.parse(localStorage.getItem('quoteCart') || '[]');
   const status = document.getElementById('quote-status');
   
- // if (cart.length === 0) {
- //   if (status) {
- //     status.textContent = 'Please add items to your quote before sending.';
- //     status.style.color = '#b6452c';
- //   }
- //   return;
- // }
-
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
@@ -68,32 +60,54 @@ async function handleSubmit(event) {
     return;
   }
 
-  let body = `Quote request from ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AItems:%0D%0A`;
+  // Build cart items summary
+  let cartSummary = '';
   let total = 0;
   cart.forEach((item) => {
-    body += `- ${item.title} x${item.qty} @ $${item.price}%0D%0A`;
+    cartSummary += `- ${item.title} x${item.qty} @ $${item.price}\n`;
     total += item.price * item.qty;
   });
-  body += `%0D%0ATotal: $${total.toFixed(2)}%0D%0A%0D%0ANotes:%0D%0A${notes}`;
+  cartSummary += `\nTotal: $${total.toFixed(2)}`;
 
-  const recipient = 'info@sandypeakwoodcraft.com';
-  const subject = encodeURIComponent('Quote Request - Sandy Peak Woodcraft');
-  
-  // Try to open mailto
+  // Submit to Formspree
   try {
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    
-    // Show success message after a short delay
-    setTimeout(() => {
+    if (status) {
+      status.textContent = 'Sending...';
+      status.style.color = 'var(--muted)';
+    }
+
+    const response = await fetch('https://formspree.io/f/xojvgoww', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        notes: notes,
+        cart_items: cartSummary
+      })
+    });
+
+    if (response.ok) {
       if (status) {
-        status.textContent = 'Email client opened! If nothing happened, please email us directly at info@sandypeakwoodcraft.com';
+        status.textContent = 'Quote request sent! We\'ll be in touch soon.';
         status.style.color = '#2f6b3b';
       }
-    }, 500);
+      // Clear the cart after successful submission
+      localStorage.removeItem('quoteCart');
+      renderCart();
+      updateQuoteCount();
+      // Reset the form
+      document.getElementById('quote-form').reset();
+    } else {
+      throw new Error('Form submission failed');
+    }
   } catch (error) {
-    // Fallback if mailto fails
     if (status) {
-      status.textContent = 'Please email your quote to info@sandypeakwoodcraft.com';
+      status.textContent = 'Something went wrong. Please try again or email us at info@sandypeakwoodcraft.com';
       status.style.color = '#b6452c';
     }
   }
