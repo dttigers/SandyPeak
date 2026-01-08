@@ -540,17 +540,20 @@
   /**
    * Select a tool
    */
-  function selectTool(tool) {
-    state.currentTool = tool;
+function selectTool(tool) {
+  state.currentTool = tool;
 
-    // Update UI
-    toolbar.querySelectorAll('[data-tool]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.tool === tool);
-    });
+  // Update UI
+  toolbar.querySelectorAll('[data-tool]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tool === tool);
+  });
 
-    // Update canvas cursor
-    canvas.classList.toggle('pointer-mode', tool === 'pointer');
-  }
+  // Add this line
+  canvas.classList.toggle('active', tool !== 'pointer');
+  
+  // Update canvas cursor
+  canvas.classList.toggle('pointer-mode', tool === 'pointer');
+}
 
   /**
    * Select a color

@@ -138,12 +138,15 @@
   </footer>
 
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/staging-markup.js"></script>
+  <script>
   if (window.location.hostname.includes('staging') ||
     window.location.hostname.includes('localhost') ||
     window.location.hostname.includes('dev')) {
   const script = document.createElement('script');
-  script.src = '/path/to/staging-markup.js';
+  script.src = 'assets/js/staging-markup.js';
   document.body.appendChild(script);
 }
+</script>
 </body>
 </html>
